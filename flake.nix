@@ -13,6 +13,10 @@
         path = ./node;
         description = "Nodejs development environment";
       };
+      node14 = {
+        path = ./node;
+        description = "Nodejs (v14) and pnpm (v5) development environment";
+      };
       go = {
         path = ./go;
         description = "Go development environment";
