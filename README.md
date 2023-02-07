@@ -53,6 +53,7 @@ In this section is require nix installed in your system, here steps to install:
 | [node](./node)      | `nodejs@v18`, `yarn@1.22`, `pnpm@7`       |
 | [node14](./node14)  | `nodejs@v14`, `yarn@1.22`, `pnpm@5`       |
 | [go](./go)          | `go@v1.19`, `gotools`, `golangci-lint`    |
+| [rn71](./go)        | `go@v1.19`, `gotools`, `golangci-lint`    |
 
 * using as development environment: `nix develop github:efishery/dvt?dir=<NAME>`
 
