@@ -9,7 +9,7 @@
   outputs = { self, nixpkgs, utils }: {
 
     templates = {
-      nodejs = {
+      node = {
         path = ./node;
         description = "Nodejs development environment";
       };

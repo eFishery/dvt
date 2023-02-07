@@ -36,20 +36,24 @@ In this section is require nix installed in your system, here steps to install:
 ### As Development Environment
 
 * Select the _development environment_
-  * run command: `nix develop github.com:efishery/dvt#<NAME>` - changes <NAME>.
-  * example for _**nodejs**_: `nix develop github.com:efishery/dvt#nodejs`
+  * run command: `nix develop github.com:efishery/dvt#<NAME>` - changes `<NAME>`.
+  * example for _**node**_: `nix develop github.com:efishery/dvt?dir=node`
+    * your local shell will be ready to use `nodejs@v18.x` , `yarn@1.22.x`, and `pnpm@7.x`.
 
 ### As Project Development Environment
 
 * Select the _development environment_ for your project:
   * run command: `nix flake -t github:efishery/dvt#<NAME>`
-  * example for _**react-native@0.71**_: `nix flake init -t github:efishery/dvt#rn71`
+  * example for _**node**_: `nix flake init -t github:efishery/dvt#node`
+    * in your project will contain all files from [node](./node).
 
+<!-- TODO
 ### As Project Boilerplate
 
 * Select availables project templates name in the tables.
   * run command `nix flake -t github:efishery/dvt#<NAME>`
   * example for _**react-native@0.71**_: `nix flake init -t github:efishery/dvt#rn71`
+-->
 
 ## Contributions
 
