@@ -13,6 +13,10 @@
         path = ./node;
         description = "Nodejs development environment";
       };
+      go = {
+        path = ./go;
+        description = "Go development environment";
+      };
     };
 
   } // utils.lib.eachDefaultSystem (system:
