@@ -19,6 +19,16 @@
 
 [[Back to the Table of Contents] ↑](#toc)
 
+```mermaid
+graph LR
+    A[User] --> B
+    B[nix develop FLAKE_FILE] --> C{Dependencies is Ready}
+    C -- no --> D([Build or Copy from cache])
+    C -- yes --> E(/nix/store/HASH-deps)
+    D --> E
+    E --> F(Ready to Develop)
+```
+
 <!-- TODO -->
 
 ## Usage
@@ -82,9 +92,19 @@ In this section is require nix installed in your system, here steps to install:
 
 [[Back to the Table of Contents] ↑](#toc)
 
-<!-- TODO -->
+### For Code Contributors
+
+* [Learning: Nix flake](https://zero-to-nix.com/concepts/flakes)
+* [Learning: Explore Nix development environments](https://zero-to-nix.com/start/nix-develop)
+* [Learning: Search for Nix packages](https://zero-to-nix.com/start/nix-search)
+* [Learning: Nix Language quirks](https://nixos.wiki/wiki/Nix_Language_Quirks)
+* [Learning: How Nix Works](https://nixos.org/guides/how-nix-works.html)
+
+<!-- TODO 
 
 ### Request
+
+-->
 
 ## Acknowledgement
 
