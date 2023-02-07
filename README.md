@@ -33,20 +33,42 @@ In this section is require nix installed in your system, here steps to install:
   * run command: `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
   * OR [Read Here for more details](https://zero-to-nix.com/start/install#up)
 
+### Templates
+
+> available templates and development environments.
+
+
+| NAME              | Lang/Framework/Tools                      |
+| -------------     | -------------                             |
+| [node](./node)    | `nodejs@v18`, `yarn@1.22`, `pnpm@7`       |
+| [node14](./node)  | `nodejs@v14`, `yarn@1.22`, `pnpm@5`       |
+| [go](./go)        | `go@v1.19`, `gotools`, `golangci-lint`    |
+
+* using as development environment: `nix develop github:efishery/dvt?dir=<NAME>`
+
 ### As Development Environment
 
-* Select the _development environment_
-  * run command: `nix develop github.com:efishery/dvt#<NAME>` - changes `<NAME>`.
-  * example for _**node**_: `nix develop "github.com:efishery/dvt?dir=node"`
-    * your local shell will be ready to use `nodejs@v18.x` , `yarn@1.22.x`, and `pnpm@7.x` with default shell is [Bash](https://www.gnu.org/software/bash/).
-    * if you want to run with your default shell `nix develop "github.com:efishery/dvt?dir=node" -c $SHELL`
+* Select the _development environment_ `<NAME>` from [templates](#templates).
+* Run command: `nix develop github:efishery/dvt?dir=<NAME>` 
+  * example for _**node**_: `nix develop "github:efishery/dvt?dir=node"` with default shell is [Bash](https://www.gnu.org/software/bash/).
+    * `nodejs@v18.x` , `yarn@1.22.x`, and `pnpm@7.x` will ready to use in your local $SHELL.
 
 ### As Project Development Environment
 
-* Select the _development environment_ for your project:
-  * run command: `nix flake -t github:efishery/dvt#<NAME>`
+* Go to your existing project directory.
+* Select the _development environment_ `<NAME>` from [templates](#templates).
+* Run command: `nix flake -t github:efishery/dvt#<NAME>`
   * example for _**node**_: `nix flake init -t github:efishery/dvt#node`
-    * in your project will contain all files from [node](./node).
+  * in your project will contains all files from [node](./node).
+
+### Usefull Command Flags
+
+* `-c <ENV_VAR>`
+  * maybe, in your local shell have been use `zsh`, `fish`, `ksh`, `csh`, or `powershell`. example run devshell with your current $SHELL:
+  * `nix develop github:efishery/dvt?dir=<NAME> -c $SHELL`
+* `--refresh`
+  * maybe, in `efishery/dvt` have been update the repository and you want to stay up to date. so, run development environment with flag `--refresh`.
+  * `nix develop github:efishery/dvt?dir=<NAME> --refresh` - run devshell with your current $SHELL
 
 <!-- TODO
 ### As Project Boilerplate
