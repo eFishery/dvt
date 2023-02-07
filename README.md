@@ -37,8 +37,9 @@ In this section is require nix installed in your system, here steps to install:
 
 * Select the _development environment_
   * run command: `nix develop github.com:efishery/dvt#<NAME>` - changes `<NAME>`.
-  * example for _**node**_: `nix develop github.com:efishery/dvt?dir=node`
-    * your local shell will be ready to use `nodejs@v18.x` , `yarn@1.22.x`, and `pnpm@7.x`.
+  * example for _**node**_: `nix develop "github.com:efishery/dvt?dir=node"`
+    * your local shell will be ready to use `nodejs@v18.x` , `yarn@1.22.x`, and `pnpm@7.x` with default shell is [Bash](https://www.gnu.org/software/bash/).
+    * if you want to run with your default shell `nix develop "github.com:efishery/dvt?dir=node" -c $SHELL`
 
 ### As Project Development Environment
 
