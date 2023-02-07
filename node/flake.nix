@@ -29,7 +29,7 @@
           shellHook = with pkgs;''
             echo "node `${nodejs}/bin/node --version`"
             echo "yarn `${yarn}/bin/yarn --version`"
-            echo "pnpm `${nodePackages.pnpm}/bin/pnpm --version`"
+            echo "pnpm `${pnpm}/bin/pnpm --version`"
           '';
         };
 
