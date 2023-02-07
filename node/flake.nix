@@ -10,9 +10,10 @@
 
     utils.lib.eachDefaultSystem (system:
       let
+        nodejsVersion = 18;
         overlays = [
           (final: prev: rec {
-            nodejs = prev.nodejs-18_x;
+            nodejs = prev."nodejs-${toString nodejsVersion}_x";
             pnpm = prev.nodePackages.pnpm;
             yarn = (prev.yarn.override { inherit nodejs; });
           })
