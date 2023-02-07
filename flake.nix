@@ -10,7 +10,7 @@
 
     templates = {
       nodejs = {
-        path = ./nodejs;
+        path = ./node;
         description = "Nodejs development environment";
       };
     };
