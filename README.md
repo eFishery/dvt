@@ -45,30 +45,35 @@ In this section is require nix installed in your system, here steps to install:
 
 ### Templates
 
-> available templates and development environments.
+> available templates or development environments.
 
 
-| NAME                | Lang/Framework/Tools                      |
-| -------------       | -------------                             |
-| [node](./node)      | `nodejs@v18`, `yarn@1.22`, `pnpm@7`       |
-| [node14](./node14)  | `nodejs@v14`, `yarn@1.22`, `pnpm@5`       |
-| [go](./go)          | `go@v1.19`, `gotools`, `golangci-lint`    |
-| [rn71](./go)        | `go@v1.19`, `gotools`, `golangci-lint`    |
+| NAME                                  | Lang/Framework/Tools                                |
+| -------------                         | -------------                                       |
+| [node](./node)                        | `nodejs@v18`, `yarn@1.22`, `pnpm@7`                 |
+| [node14](./node14)                    | `nodejs@v14`, `yarn@1.22`, `pnpm@5`                 |
+| [go](./go)                            | `go@v1.19`, `gotools`, `golangci-lint`              |
+| [react-native](./react-native)        | [See Details](./react-native/flake.nix#L192-L212)   |
 
-* using as development environment: `nix develop github:efishery/dvt?dir=<NAME>`
+* using as development environment: `nix develop "github:efishery/dvt?dir=<NAME>"`
 
 ### As Development Environment
 
-* Select the _development environment_ `<NAME>` from [templates](#templates).
-* Run command: `nix develop github:efishery/dvt?dir=<NAME>` 
+* Select the _development environment_ by `<NAME>` from [templates](#templates).
+* and, Run command
+```bash
+nix develop "github:efishery/dvt?dir=<NAME>"
+```
   * example for _**node**_: `nix develop "github:efishery/dvt?dir=node"` with default shell is [Bash](https://www.gnu.org/software/bash/).
     * `nodejs@v18.x` , `yarn@1.22.x`, and `pnpm@7.x` will ready to use in your local $SHELL.
 
 ### As Project Development Environment
 
-* Go to your existing project directory.
-* Select the _development environment_ `<NAME>` from [templates](#templates).
-* Run command: `nix flake -t github:efishery/dvt#<NAME>`
+* Go to project directory.
+* Select the _development environment_ by `<NAME>` from [templates](#templates).
+```bash
+nix flake -t github:efishery/dvt#<NAME>
+```
   * example for _**node**_: `nix flake init -t github:efishery/dvt#node`
   * in your project will contains all files from [node](./node).
 
