@@ -72,7 +72,7 @@ nix develop "github:efishery/dvt?dir=<NAME>"
 * Go to project directory.
 * Select the _development environment_ by `<NAME>` from [templates](#templates).
 ```bash
-nix flake -t github:efishery/dvt#<NAME>
+nix flake init -t github:efishery/dvt#<NAME>
 ```
   * example for _**node**_: `nix flake init -t github:efishery/dvt#node`
   * in your project will contains all files from [node](./node).
