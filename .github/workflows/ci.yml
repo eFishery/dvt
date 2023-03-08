@@ -26,6 +26,7 @@ jobs:
       - uses: cachix/install-nix-action@v19
         with:
           github_access_token: ${{ secrets.GH_TOKEN }}
+      - run: nix run nixpkgs#nix-info -- -m
       - uses: cachix/cachix-action@v12
         with:
           name: efishery
