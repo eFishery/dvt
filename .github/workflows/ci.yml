@@ -9,16 +9,16 @@ jobs:
       matrix:
         runtime: [ linux-x64, linux-arm64, osx-x64, osx-arm64] # others: linux-arm, win-x64, win-arm64  
         include:
-          - runtime: linux-x64
+          - arch: x64
             os: ubuntu-latest
 
-          - runtime: linux-arm64
+          - arch: aarch64
             os: ubuntu-latest
 
-          - runtime: osx-x64
+          - arch: x64
             os: macos-latest
 
-          - runtime: osx-arm64
+          - arch: aarch64
             os: macos-latest
     runs-on: ${{ matrix.os }}
     steps:
