@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v19
+      - uses: cachix/install-nix-action@v20
         with:
           github_access_token: ${{ secrets.GH_TOKEN }}
       - run: nix run nixpkgs#nix-info -- -m
