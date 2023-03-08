@@ -63,13 +63,21 @@
         done
       '';
 
+      test-develop = writeScriptBin "test-develop" ''
+        for dir in `ls -d */`; do
+          (
+            ${run "nix"} develop $dir # Make sure this work after update
+            sleep 0.2
+          )
+        done
+      '';
     in
     {
       devShells.default = mkShell { buildInputs = [ format update ]; };
 
       packages = {
         default = dvt;
-        inherit dvt;
+        inherit dvt test-develop;
       };
     });
 }
