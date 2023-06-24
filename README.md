@@ -54,6 +54,7 @@ In this section is require nix installed in your system, here steps to install:
 | [node14](./node14)                    | `nodejs@v14`, `yarn@1.22`, `pnpm@5`                 |
 | [go](./go)                            | `go@v1.19`, `gotools`, `golangci-lint`              |
 | [react-native](./react-native)        | [See Details](./react-native/flake.nix#L192-L212)   |
+| [pg](./pg)                            | `postgresql 14`                                     |
 
 * using as development environment: `nix develop "github:efishery/dvt?dir=<NAME>"`
 
