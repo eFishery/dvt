@@ -21,6 +21,9 @@
             # go 1.19 (specified by overlay)
             go
 
+            # go lsp
+            gopls
+
             # goimports, godoc, etc.
             gotools
 
