@@ -34,8 +34,8 @@
         createEmulator = pkgs:
           let
             inherit (pkgs.stdenv) isAarch64;
-            arch = if isAarch64 then "arm64-v8a" else "x86-64";
-            cpuArch = if isAarch64 then "arm64" else "x86-64";
+            arch = if isAarch64 then "arm64-v8a" else "x86_64";
+            cpuArch = if isAarch64 then "arm64" else "x86_64";
           in
           rec
           {
