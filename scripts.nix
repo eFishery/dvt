@@ -16,6 +16,7 @@
       for dir in `ls -d */`; do
         (
           ${nix}/bin/nix develop $dir # Make sure this work after update
+          [[ "$dir" == "react-native/" ]] && ${nix}/bin/nix develop $dir -c create-emulator
           sleep 0.2
         )
       done
