@@ -10,7 +10,7 @@
 
     utils.lib.eachDefaultSystem (system:
       let
-        goVersion = 19;
+        goVersion = 21;
         overlays = [ (final: prev: { go = prev."go_1_${toString goVersion}"; }) ];
         pkgs = import nixpkgs { inherit overlays system; };
 
