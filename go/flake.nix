@@ -10,15 +10,15 @@
 
     utils.lib.eachDefaultSystem (system:
       let
-        goVersion = 19;
+        goVersion = 21;
         overlays = [ (final: prev: { go = prev."go_1_${toString goVersion}"; }) ];
         pkgs = import nixpkgs { inherit overlays system; };
 
       in
       {
-        devShells.default = pkgs.mkShellNoCC {
+        devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            # go 1.19 (specified by overlay)
+            # go 1.21 (specified by overlay)
             go
 
             # go lsp
