@@ -19,4 +19,9 @@
     description = "React Native development environment";
   };
 
+  pg = {
+    path = ./pg;
+    description = "PostgreSQL development environment";
+  };
+
 }
