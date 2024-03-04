@@ -66,9 +66,6 @@
 
             # https://github.com/golangci/golangci-lint
             golangci-lint
-
-            # swagger
-            maaf72-go-swagger
           ];
 
           shellHook = ''
