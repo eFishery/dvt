@@ -74,7 +74,7 @@
             # using `go install` when certain 
             # dependencies not available/outdated 
             # on nixpkgs
-            export GOPATH="$(go env GOPATH)"
+            export GOPATH="$(${pkgs.go}/bin/go env GOPATH)"
             export PATH="$PATH:$GOPATH/bin"
 
             ${pkgs.go}/bin/go version
