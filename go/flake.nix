@@ -4,9 +4,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     utils.url = "github:numtide/flake-utils";
+
+    go-swagger = {
+      url = "github:MAAF72/go-swagger";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, utils }:
+  outputs = { self, nixpkgs, utils, go-swagger }:
 
     utils.lib.eachDefaultSystem (system:
       let
@@ -25,12 +30,7 @@
           pname = "go-swagger-custom";
           version = "0.30.6-maaf72.1";
 
-          src = fetchGit {
-            # TODO: consider move this fork into efishery repo
-            url = "https://github.com/MAAF72/go-swagger.git";
-            ref = "master";
-            rev = "e05ec5b59149e59afa2acb79479eaec6a68106cf";
-          };
+          src = go-swagger;
 
           doCheck = false;
           subPackages = [ "cmd/swagger" ];
@@ -52,7 +52,7 @@
           };
         };
       in
-      {
+      rec {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             # go 1.21 (specified by overlay)
@@ -82,6 +82,14 @@
 
             ${pkgs.go}/bin/go version
           '';
+        };
+
+        devShells.go-swagger = pkgs.mkShell {
+          buildInputs = [
+            maaf72-go-swagger
+          ] ++ devShells.default.buildInputs;
+
+          shellHook = devShells.default.shellHook;
         };
       });
 }
