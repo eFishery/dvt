@@ -6,16 +6,14 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, utils }:
+  outputs = { nixpkgs, utils, ... }:
 
     utils.lib.eachDefaultSystem (system:
       let
-        nodejsVersion = 18;
+        nodejsVersion = 20;
         overlays = [
-          (final: prev: rec {
-            nodejs = prev."nodejs-${toString nodejsVersion}_x";
-            pnpm = prev.nodePackages.pnpm;
-            yarn = (prev.yarn.override { inherit nodejs; });
+          (final: prev: {
+            nodejs = prev."nodejs_${toString nodejsVersion}";
           })
         ];
 
@@ -24,7 +22,19 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [ nodejs pnpm yarn ];
+          buildInputs = with pkgs; [
+            nodejs
+
+            (stdenv.mkDerivation {
+              name = "corepack-shims";
+              buildInputs = [ nodejs ];
+              phases = [ "installPhase" ];
+              installPhase = ''
+                mkdir -p $out/bin
+                corepack enable --install-directory=$out/bin
+              '';
+            })
+          ];
 
           shellHook = with pkgs;''
             echo "node `${nodejs}/bin/node --version`"
